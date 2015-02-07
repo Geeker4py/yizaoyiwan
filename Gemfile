@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'mysql2', '~> 0.3.17'
+gem 'devise', '~> 3.4.1'
