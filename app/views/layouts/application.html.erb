@@ -11,13 +11,16 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<% if user_signed_in? %>
-欢迎  <%= current_user.username %> <%= current_user.role_text %>
-<% end %>
+<div class="header">
+  <% if user_signed_in? %>
+    欢迎  <%= current_user.username %> <%= current_user.role_text %>
+  <% end %>
 
-<%= link_to '登录', new_user_session_path %>
-<%= link_to '注册', new_user_registration_path %>
-<%= link_to '注销', destroy_user_session_path, method: :delete, data: { confirm: '确定要注销？'} %>
+  <%= link_to '登录', new_user_session_path %>
+  <%= link_to '注册', new_user_registration_path %>
+  <%= link_to '注销', destroy_user_session_path, method: :delete, data: { confirm: '确定要注销？'} %>
+</div>
+
 <%= yield %>
 
 </body>
