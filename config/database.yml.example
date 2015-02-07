@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  host: 127.0.0.1
+  port: 3306
+  secure_auth: false
+
+development:
+  <<: *default
+  database: yizaoyiwan_dev
+  username: root
+  password: root
+
+test:
+  <<: *default
+  database: yizaoyiwan_test
+  username: root
+  password: root
+
+production:
+  <<: *default
+  database: yizaoyiwan
+  username: root
+  password: root
