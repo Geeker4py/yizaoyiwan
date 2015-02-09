@@ -16,16 +16,16 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :parser %><br>
+    <%= f.text_field :parser %>
+  </div>
+  <div class="field">
     <%= f.label :content %><br>
     <%= f.text_area :content, class: 'simditor' %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
     <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: true  %>
-  </div>
-  <div class="field">
-    <%= f.label :format %><br>
-    <%= f.text_field :format %>
   </div>
   <div class="actions">
     <%= f.submit %>
