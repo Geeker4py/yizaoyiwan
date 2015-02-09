@@ -44,3 +44,4 @@ gem 'enumerize'
 gem 'seed-fu'
 gem 'simditor-rails'
 gem "font-awesome-rails"
+gem 'quiet_assets', group: :development
