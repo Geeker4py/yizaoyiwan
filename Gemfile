@@ -42,3 +42,5 @@ gem 'mysql2', '~> 0.3.17'
 gem 'devise', '~> 3.4.1'
 gem 'enumerize'
 gem 'seed-fu'
+gem 'simditor-rails'
+gem "font-awesome-rails"

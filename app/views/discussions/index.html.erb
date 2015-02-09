@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
       <th>User</th>
       <th>Category</th>
       <th>Format</th>
@@ -16,7 +15,6 @@
     <% @discussions.each do |discussion| %>
       <tr>
         <td><%= discussion.title %></td>
-        <td><%= discussion.content %></td>
         <td><%= discussion.user_id %></td>
         <td><%= discussion.category_id %></td>
         <td><%= discussion.format %></td>
