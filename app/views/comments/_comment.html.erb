@@ -1,0 +1,5 @@
+<%= content_tag_for :li, comment do %>
+  <%= simple_format comment.content %>
+  
+  <%= comment.user %> 发表于 <%= comment.created_at %>
+<% end %>

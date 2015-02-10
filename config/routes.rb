@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :discussions
+
+  resources :discussions do
+    resources :comments
+  end
 
   resources :categories
   
 
   devise_for :users
-  root to: "home#index"
+  root to: "discussions#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,29 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
+<article class="disscussion">
+  <header>
+    <h2><%= @discussion.title %></h2>
+    <div class="meta">
+      由 <%= @discussion.user %> 在 <%= @discussion.category %>
 
-<p>
-  <strong>Content:</strong>
-  <%= simple_format @discussion.content %>
-</p>
+      <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+      <%= link_to 'Back', discussions_path %>
+    </div>
+  </header>
 
-<p>
-  <strong>User:</strong>
-  <%= @discussion.user_id %>
-</p>
+  <div class="content">
+    <%= simple_format @discussion.content %>
+  </div>
+</article>
 
-<p>
-  <strong>Category:</strong>
-  <%= @discussion.category_id %>
-</p>
+<section id="comments">
+  <h3>评论</h3>
 
-<p>
-  <strong>Parser:</strong>
-  <%= @discussion.parser %>
-</p>
+  <ul class="comments">
+    <%= render @comments %>
+  </ul>
 
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+  <%= form_for [@discussion, @comment] do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field :parser %>
+      <%= f.text_area :content, class: 'simditor' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</section>
