@@ -9,21 +9,29 @@
   </head>
   <body class="<%= page_class %>">
     <div class="header">
-      <% if user_signed_in? %>
-        欢迎  <%= current_user.username %>
-        <%= link_to '注销', destroy_user_session_path, method: :delete, data: { confirm: '确定要注销？'} %>
-      <% else %>
-        <%= link_to '登录', new_user_session_path %>
-        <%= link_to '注册', new_user_registration_path %>
-      <% end %>
-      <%= link_to '讨论', discussions_path %>
-      <%= link_to '分类', categories_path %>
+      <div class="container">
+        <%= link_to '一早一晚', root_url, class: 'brand' %>
+        <%= link_to '讨论', discussions_path %>
+        <%= link_to '分类', categories_path %>
+
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            欢迎  <%= current_user.username %>
+            <%= link_to '注销', destroy_user_session_path, method: :delete, data: { confirm: '确定要注销？'} %>
+          <% else %>
+            <%= link_to '登录', new_user_session_path %>
+            <%= link_to '注册', new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     
     <%= javascript_include_tag 'application' %>
   </body>

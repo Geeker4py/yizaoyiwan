@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_discussion
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -22,8 +24,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.discussion = @discussion
+    @comment.user = current_user
     @comment.save
-    respond_with(@comment)
+
+    redirect_to discussion_path(@discussion)
   end
 
   def update
@@ -39,6 +44,10 @@ class CommentsController < ApplicationController
   private
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def set_discussion
+      @discussion = Discussion.find(params[:discussion_id])
     end
 
     def comment_params

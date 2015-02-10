@@ -1,3 +1,31 @@
-// Place all the styles related to the Discussions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body.discussions.action_show {
+  article.disscussion {
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  #comments {
+    margin-bottom: 15px;
+
+    ul.comments {
+      list-style: none;
+      margin: 0 0 15px 0;
+      padding: 0;
+
+      li {
+        background-color: #f7f7f7;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      input[type=submit] {
+        padding: 5px 10px;
+      }
+    }
+  }
+}
