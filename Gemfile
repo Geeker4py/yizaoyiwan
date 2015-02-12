@@ -43,6 +43,7 @@ gem 'seed-fu'
 gem 'simditor-rails'
 gem "font-awesome-rails"
 gem 'quiet_assets', group: :development
+gem 'will_paginate', '~> 3.0.6'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'
