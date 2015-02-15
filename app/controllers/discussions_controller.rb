@@ -11,8 +11,8 @@ class DiscussionsController < ApplicationController
   end
 
   def show
-    @comment  = @discussion.comments.new
     @comments = @discussion.comments
+    @comment  = Comment.new
     respond_with(@discussion)
   end
 

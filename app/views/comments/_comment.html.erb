@@ -1,5 +1,9 @@
 <%= content_tag_for :li, comment do %>
   <%= simple_format comment.content %>
   
-  <%= comment.user %> 发表于 <%= comment.created_at %>
+  <footer>
+    <%= comment.user %> 发表于 <%= comment.created_at %>
+
+    <%= link_to '编辑', [:edit, @discussion, comment] %>
+  </footer>
 <% end %>
