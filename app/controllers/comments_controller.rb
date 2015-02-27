@@ -33,12 +33,14 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update(comment_params)
-    respond_with(@comment)
+    
+    redirect_to discussion_path(@discussion)
   end
 
   def destroy
-    @comment.destroy
-    respond_with(@comment)
+    @comment.update_attributes(deleted_at: DateTime.now,
+                               deleted_by: current_user.id)
+    redirect_to discussion_path(@discussion)
   end
 
   private

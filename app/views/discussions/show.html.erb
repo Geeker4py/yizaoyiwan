@@ -23,14 +23,5 @@
     <%= render @comments %>
   </ul>
 
-  <%= form_for [@discussion, @comment] do |f| %>
-    <div class="form-group">
-      <%= f.hidden_field :parser %>
-      <%= f.text_area :content, class: 'simditor' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit %>
-    </div>
-  <% end %>
+  <%= render partial: 'comments/form' %>
 </section>

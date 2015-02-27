@@ -1,5 +1,10 @@
 <%= content_tag_for :li, comment do %>
-  <%= simple_format comment.content %>
+  <%= render_comment_content(comment) %>
   
-  <%= comment.user %> 发表于 <%= comment.created_at %>
+  <footer>
+    <%= comment.user %> 发表于 <%= comment.created_at %>
+
+    <%= link_to '编辑', [:edit, @discussion, comment] %>
+    <%= link_to '删除', [@discussion, comment], method: :delete, data: { confirm: '确认要删除？' } %>
+  </footer>
 <% end %>
