@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210013324) do
+ActiveRecord::Schema.define(version: 20150227153238) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150210013324) do
     t.string   "parser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
+    t.integer  "deleted_by"
   end
 
   create_table "discussions", force: true do |t|
