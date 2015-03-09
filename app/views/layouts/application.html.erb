@@ -8,6 +8,8 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= page_class %>">
+    <%= render '/shared/header' %>
+    
     <div class="header">
       <div class="container">
         <%= link_to '一早一晚', root_url, class: 'brand' %>
