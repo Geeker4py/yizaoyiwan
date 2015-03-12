@@ -1,35 +1,5 @@
-<h1>Listing discussions</h1>
+<h1>所有帖子</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>User</th>
-      <th>Category</th>
-      <th>Parser</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @discussions.each do |discussion| %>
-      <tr>
-        <td><%= discussion.title %></td>
-        <td><%= discussion.user_id %></td>
-        <td><%= discussion.category_id %></td>
-        <td><%= discussion.parser_text %></td>
-        <td><%= link_to 'Show', discussion %></td>
-        <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-        <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<p>
-  <%= will_paginate @discussions %>
-</p>
-
-<br>
+<%= render 'list' %>
 
 <%= link_to 'New Discussion', new_discussion_path %>
