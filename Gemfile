@@ -47,4 +47,5 @@ gem 'will_paginate', '~> 3.0.6'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'
+  gem 'rails-assets-bootstrap'
 end
