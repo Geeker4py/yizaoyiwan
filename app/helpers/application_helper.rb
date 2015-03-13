@@ -8,4 +8,10 @@ module ApplicationHelper
       Category.all
     end
   end
+
+  def render_nav_icon(title, icon, options={})
+    options = { title: title }.merge(options)
+    text = fa_icon(icon, text: content_tag(:span, title))
+    link_to(text, 'javascript:;', options)
+  end
 end
