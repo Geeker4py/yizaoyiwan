@@ -1,8 +1,12 @@
-<li class="discussion">
-  <h3><%= link_to discussion.title, discussion %></h3>
+<%= content_tag_for :article, discussion, class: 'media' do %>
+  <div class="media-left media-middle">
+    <%= link_to '###' do %>
+      <%= image_tag 'http://placehold.it/50x50', size: '50x50', class: 'media-object' %>
+    <% end %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to discussion.title, discussion %></h4>
 
-  由 <%= discussion.user %> 发表于 <%= discussion.created_at %>
-  
-  <%= link_to '编辑', [:edit, discussion] %></td>
-  <%= link_to '删除', discussion, method: :delete, data: { confirm: '确定要删除帖子？' } %></td>
-</li>
+    由 <%= discussion.user %> 发表于 <%= discussion.created_at %>
+  </div>
+<% end %>
