@@ -12,9 +12,6 @@
     
     <div class="header">
       <div class="container">
-        <%= link_to '一早一晚', root_url, class: 'brand' %>
-        <%= link_to '讨论', discussions_path %>
-
         <div class="pull-right">
           <% if user_signed_in? %>
             欢迎  <%= current_user.username %>
@@ -27,11 +24,16 @@
       </div>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <div class="container">
-      <%= yield %>
+      <section class="sidebar">
+        <%= render 'application/panels/new_discussion' %>
+
+        <%= yield(:sidebar) %>
+      </section>
+
+      <section class="content">
+        <%= yield %>
+      </section>
     </div>
     
     <%= javascript_include_tag 'application' %>
