@@ -6,6 +6,17 @@
   -o-transition: background-color 0.3s;
 }
 
+.form-disscussion {
+  .wrapper-category {
+    float: left;
+    width: 60px;
+  }
+
+  .wrapper-title {
+    margin-left: 70px;
+  }
+}
+
 .discussion:hover {
   border-radius: 4px;
   background-color: #f6f6f6;
