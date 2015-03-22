@@ -3,7 +3,9 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="panel-title">发起新话题</div>
+      <div class="panel-title">
+        <%= @discussion.new_record? ? '发起新话题' : '编辑话题' %>
+      </div>
     </div>
 
     <div class="panel-body">
@@ -23,6 +25,7 @@
 
     <div class="panel-footer">
       <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to '返回', :back, class: 'btn btn-default' %>
     </div>
   </div>
 <% end %>
