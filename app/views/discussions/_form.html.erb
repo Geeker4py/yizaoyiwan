@@ -1,30 +1,28 @@
-<%= form_for(@discussion) do |f| %>
-  <% if @discussion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
-
-      <ul>
-      <% @discussion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@discussion, html: { class: 'form-disscussion' }) do |f| %>
   <%= f.hidden_field :parser %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content, class: 'simditor' %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: true  %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">发起新话题</div>
+    </div>
+
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="wrapper-category">
+          <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, { include_blank: false }, { class: 'form-control' } %>
+        </div>
+        <div class="wrapper-title">
+          <%= f.text_field :title, placeholder: '标题', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_area :content, class: 'simditor' %>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
