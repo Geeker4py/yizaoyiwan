@@ -5,7 +5,8 @@ class DiscussionsController < ApplicationController
   respond_to :html
 
   def index
-    @discussions = Discussion.paginate(page: params[:page])
+    @discussions = Discussion.includes(:last_comment_user)
+                             .paginate(page: params[:page])
     
     respond_with(@discussions)
   end

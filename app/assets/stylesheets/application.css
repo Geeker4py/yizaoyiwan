@@ -2,6 +2,7 @@
  *= require bootstrap
  *= require font-awesome
  *= require simditor
+ *= require common
  *= require layout
  *= require discussions
  */
