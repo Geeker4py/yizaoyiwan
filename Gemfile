@@ -27,7 +27,7 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
+# Use unicorn as the app sagoerver
 # gem 'unicorn'
 
 # Use Capistrano for deployment
@@ -44,6 +44,7 @@ gem 'simditor-rails'
 gem "font-awesome-rails"
 gem 'quiet_assets', group: :development
 gem 'will_paginate', '~> 3.0.6'
+gem 'rails-timeago', '~> 2.11.1'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'

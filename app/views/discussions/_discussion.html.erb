@@ -6,7 +6,27 @@
   </div>
   <div class="media-body">
     <h4 class="media-heading"><%= link_to discussion.title, discussion %></h4>
+    
+    <div class="media-meta">
+      <div class="pull-right">
+        <span class="counter">
+          <%= fa_icon('eye', text: 0) %>
+        </span>
 
-    由 <%= discussion.user %> 发表于 <%= discussion.created_at %>
+        <span class="counter">
+          <%= fa_icon('comment', text: discussion.comments.count) %>
+        </span>
+      </div>
+
+      <%= link_to discussion do %>
+        <%= discussion.user %> 发起于 <%= timeago_tag discussion.created_at %>
+      <% end %>
+
+      <% if discussion.last_comment_user %>
+        <%= link_to discussion do %>
+          <%= discussion.last_comment_user %> 回复于 <%= timeago_tag discussion.last_comment_at %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>

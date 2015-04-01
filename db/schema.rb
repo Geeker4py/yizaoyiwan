@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227153238) do
+ActiveRecord::Schema.define(version: 20150401152904) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150227153238) do
     t.string   "parser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_comment_user_id"
+    t.datetime "last_comment_at"
   end
 
   create_table "users", force: true do |t|

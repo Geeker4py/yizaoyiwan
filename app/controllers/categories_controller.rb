@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(slug: params[:slug]);
-    @discussions = @category.discussions.paginate(page: params[:page])
+    @discussions = @category.discussions.includes(:last_comment_user).paginate(page: params[:page])
 
     respond_with(@category, @discussions)
   end
