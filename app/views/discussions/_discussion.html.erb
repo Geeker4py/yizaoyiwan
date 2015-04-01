@@ -18,6 +18,8 @@
         </span>
       </div>
 
+      <%= link_to discussion.category.name, category_path(discussion.category.slug), class: 'label label-sm label-default' %>
+
       <%= link_to discussion do %>
         <%= discussion.user %> 发起于 <%= timeago_tag discussion.created_at %>
       <% end %>

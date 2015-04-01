@@ -6,11 +6,16 @@
   -o-transition: background-color 0.3s;
 
   .media-meta {
+    margin-top: 10px;
     color: #777777;
     font-size: 80%;
 
     a {
       margin-right: 15px;
+    }
+
+    .label {
+      padding: 1px 5px 2px;
     }
 
     .pull-right .counter {
