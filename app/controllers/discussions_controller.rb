@@ -6,8 +6,9 @@ class DiscussionsController < ApplicationController
 
   def index
     @discussions = Discussion.includes(:last_comment_user)
+                             .order(updated_at: :desc)
                              .paginate(page: params[:page])
-    
+
     respond_with(@discussions)
   end
 
