@@ -1,7 +1,7 @@
 <%= content_tag_for :article, discussion, class: 'media' do %>
   <div class="media-left media-middle">
     <%= link_to '###' do %>
-      <%= image_tag 'http://placehold.it/50x50', size: '50x50', class: 'media-object' %>
+      <%= image_tag discussion.user.avatar_url, size: '50x50', class: 'media-object' %>
     <% end %>
   </div>
   <div class="media-body">

@@ -5,6 +5,10 @@ defaults: &defaults
     password: xxx
     bucket: xxx
     bucket_host: xxx
+  gavatar:
+    proxy: http://gravatar.duoshuo.com/avatar/
+    default: 404
+
 
 development:
   <<: *defaults
