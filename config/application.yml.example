@@ -1,0 +1,17 @@
+# config/application.yml
+defaults: &defaults
+  upyun:
+    username: xxx
+    password: xxx
+    bucket: xxx
+    bucket_host: xxx
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

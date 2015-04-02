@@ -11,3 +11,4 @@
 
 # Project related.
 /config/database.yml
+/config/application.yml

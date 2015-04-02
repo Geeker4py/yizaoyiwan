@@ -45,6 +45,9 @@ gem "font-awesome-rails"
 gem 'quiet_assets', group: :development
 gem 'will_paginate', '~> 3.0.6'
 gem 'rails-timeago', '~> 2.11.1'
+gem 'rest-client'
+gem 'carrierwave-upyun'
+gem 'settingslogic', '~> 2.0.9'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'
