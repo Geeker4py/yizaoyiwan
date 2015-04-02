@@ -2,8 +2,9 @@
 //= require sugar
 //= require jquery_ujs
 //= require jquery.readyselector
+//= require jquery.simditor
 //= require rails_timeago_override
 //= require bootstrap
-//= require simditor
 //= require helpers
+//= require global
 //= require discussions
