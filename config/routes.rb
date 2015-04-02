@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  namespace :upload do
+    post :image
+  end
+
   get 'categories/:slug', to: 'categories#show', as: :category
 end
