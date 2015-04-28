@@ -48,6 +48,7 @@ gem 'rails-timeago', '~> 2.11.1'
 gem 'rest-client'
 gem 'carrierwave-upyun'
 gem 'settingslogic', '~> 2.0.9'
+gem 'acts_as_votable', '~> 0.10.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'
