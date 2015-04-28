@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       patch :bookmark
     end
   end
-  resources :bookmarks, only: [:index]
 
   namespace :upload do
     post :image

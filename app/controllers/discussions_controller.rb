@@ -40,7 +40,7 @@ class DiscussionsController < ApplicationController
   end
 
   def bookmark
-    @discussion.bookmark_by(current_user)
+    @discussion.vote_by(voter: current_user, vote: 'bookmark')
 
     flash[:success] = '已添加到收藏'
     redirect_to @bookmark
