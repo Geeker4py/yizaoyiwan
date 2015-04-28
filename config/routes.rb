@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :bookmarks
 
   devise_for :users
   
@@ -7,7 +6,12 @@ Rails.application.routes.draw do
 
   resources :discussions do
     resources :comments
+
+    member do
+      patch :bookmark
+    end
   end
+  resources :bookmarks, only: [:index]
 
   namespace :upload do
     post :image

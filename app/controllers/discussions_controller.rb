@@ -1,6 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :set_discussion, only: [:show, :edit, :update, :bookmark :destroy]
 
   respond_to :html
 
@@ -37,6 +37,13 @@ class DiscussionsController < ApplicationController
     @discussion.user_id = current_user.id
     @discussion.update(discussion_params)
     respond_with(@discussion)
+  end
+
+  def bookmark
+    @discussion.bookmark_by(current_user)
+
+    flash[:success] = '已添加到收藏'
+    redirect_to @bookmark
   end
 
   def destroy
