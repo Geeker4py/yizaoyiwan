@@ -1,7 +1,6 @@
 class Discussion < ActiveRecord::Base
   extend Enumerize
-
-  self.per_page = 5 # 初期测试用
+  acts_as_votable
 
   validates_presence_of :title, :content, :category_id, :parser
   enumerize :parser, in: [:markdown, :html], default: :html

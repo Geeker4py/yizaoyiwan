@@ -1,6 +1,15 @@
 module ApplicationHelper
-  def page_class
-    "#{params[:controller]} action_#{params[:action]}"
+  def alert_level(level)
+    case level
+    when 'notice' then 'info'
+    when 'alert'  then 'warning'
+    when 'error'  then 'danger'
+    else level
+    end
+  end
+
+  def body_class
+    "page_#{params[:controller].gsub('/', '_')} action_#{params[:action]}"
   end
 
   def site_categories

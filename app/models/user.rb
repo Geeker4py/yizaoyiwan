@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   extend Enumerize
+  acts_as_voter
 
   alias_attribute :to_s, :username
   

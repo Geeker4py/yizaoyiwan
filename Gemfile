@@ -41,13 +41,20 @@ gem 'devise', '~> 3.4.1'
 gem 'enumerize'
 gem 'seed-fu'
 gem 'simditor-rails'
-gem "font-awesome-rails"
-gem 'quiet_assets', group: :development
+gem 'font-awesome-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'rails-timeago', '~> 2.11.1'
 gem 'rest-client'
 gem 'carrierwave-upyun'
 gem 'settingslogic', '~> 2.0.9'
+gem 'acts_as_votable', '~> 0.10.0'
+
+group :development, :test do
+  gem 'quiet_assets'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'thin'
+end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-sugar'
