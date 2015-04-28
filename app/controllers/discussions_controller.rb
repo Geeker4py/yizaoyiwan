@@ -1,6 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_discussion, only: [:show, :edit, :update, :bookmark :destroy]
+  before_action :set_discussion, only: [:show, :edit, :update, :bookmark, :destroy]
 
   respond_to :html
 
@@ -39,11 +39,17 @@ class DiscussionsController < ApplicationController
     respond_with(@discussion)
   end
 
+  # 切换书签显示结果
   def bookmark
-    @discussion.vote_by(voter: current_user, vote: 'bookmark')
+    if current_user.voted_on?(@discussion, vote_scope: 'bookmark')
+      flash[:success] = '已经取消收藏'
+      @discussion.unvote_by(current_user, vote_scope: 'bookmark')
+    else
+      flash[:success] = '已经添加到收藏'
+      @discussion.vote_by(voter: current_user, vote_scope: 'bookmark')
+    end
 
-    flash[:success] = '已添加到收藏'
-    redirect_to @bookmark
+    redirect_to @discussion
   end
 
   def destroy
