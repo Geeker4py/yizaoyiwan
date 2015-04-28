@@ -6,4 +6,13 @@ module DiscussionsHelper
       simple_format(comment.content)
     end
   end
+
+  def render_discussion_bookmark_link(discussion)
+    if current_user.voted_on?(discussion, vote_scope: 'bookmark')
+      link_to '取消收藏', [:bookmark, discussion], method: :patch
+    else
+      link_to '收藏', [:bookmark, discussion], method: :patch
+    end
+  end
+
 end

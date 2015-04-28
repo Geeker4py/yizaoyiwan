@@ -53,6 +53,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'thin'
 end
 
 source 'https://rails-assets.org' do

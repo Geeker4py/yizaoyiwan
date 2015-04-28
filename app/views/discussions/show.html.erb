@@ -7,7 +7,7 @@
       由 <%= @discussion.user %> 在 <%= @discussion.category %>
 
       <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-      <%= link_to '收藏', [:bookmark, @discussion], method: :patch %> |
+      <%= render_discussion_bookmark_link(@discussion) %> |
       <%= link_to 'Back', discussions_path %>
     </div>
   </header>
