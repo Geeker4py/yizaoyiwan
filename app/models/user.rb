@@ -2,18 +2,20 @@ class User < ActiveRecord::Base
   extend Enumerize
   acts_as_voter
 
+  acts_as_authentic do |config|
+    config.login_field = 'email'
+
+    # Use legacy crypto provider.
+    config.crypto_provider = Authlogic::CryptoProviders::BCrypt
+  end
+
   alias_attribute :to_s, :username
-  
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  enumerize :role, in: [:admin, :member], default: :member
 
-  enumerize :role, in: [:user, :admin], default: :user
-
-  ACCESSABLE_ATTRS = [:email, :username, :password, :password_confirmation]
-
-  ## Attributes
+  validates_presence_of :username, :email, :role
+  validates_presence_of :password, :password_confirmation, on: :create
+  validates_uniqueness_of :username
+  validates_format_of :username, with: /\A\S+\z/, message: '不能包含空格'
 
   def avatar_url(size=64)
     "#{Settings.gavatar.proxy}/#{email_md5}.png?s=#{size}&w=#{Settings.gavatar.default}"

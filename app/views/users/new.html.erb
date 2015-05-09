@@ -1,0 +1,16 @@
+<%= simple_form_for(@user, url: signup_path) do |f| %>
+  <%= panel title: '注册' do %>
+
+    <div class="panel-body">
+      <%= f.error_notification %>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+    </div>
+
+    <div class="panel-footer">
+      <%= f.button :submit, '注册', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>

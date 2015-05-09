@@ -1,0 +1,18 @@
+zh-CN:
+  activerecord:
+    models:
+      user: 用户
+    attributes:
+      user:
+        username: 用户名
+        email: 邮箱
+        roles: 角色
+        roles_text: 角色
+        old_password: 原密码
+        password: 密码
+        password_confirmation: 确认密码
+  enumerize:
+    user:
+      roles:
+        admin: 管理员
+        member: 普通会员
