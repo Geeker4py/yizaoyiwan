@@ -1,5 +1,5 @@
 class DiscussionsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :require_user, except: [:index, :show]
   before_action :set_discussion, only: [:show, :edit, :update, :bookmark, :destroy]
 
   respond_to :html

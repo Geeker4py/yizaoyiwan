@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'signin', to: 'user_sessions#new'
+  post 'signin', to: 'user_sessions#create'
+  delete 'signout', to: 'user_sessions#destroy'
 
-  devise_for :users
+  # devise_for :users
   
   root to: "discussions#index"
 

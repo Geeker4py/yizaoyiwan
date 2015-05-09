@@ -48,6 +48,8 @@ gem 'rest-client'
 gem 'carrierwave-upyun'
 gem 'settingslogic', '~> 2.0.9'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'authlogic'
+gem 'simple_form'
 
 group :development, :test do
   gem 'quiet_assets'
