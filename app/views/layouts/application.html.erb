@@ -9,20 +9,6 @@
   </head>
   <body class="<%= body_class %>">
     <%= render 'header' %>
-    
-    <div class="header">
-      <div class="container">
-        <div class="pull-right">
-          <% if current_user_session %>
-            欢迎  <%= current_user.username %>
-            <%= link_to '注销', signout_path, method: :delete, data: { confirm: '确定要注销？'} %>
-          <% else %>
-            <%= link_to '登录', signin_path %>
-            <%= link_to '注册', signup_path %>
-          <% end %>
-        </div>
-      </div>
-    </div>
 
     <div class="container">
       <%= render 'messages' %>
