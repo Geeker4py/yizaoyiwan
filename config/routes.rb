@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   post 'signin', to: 'user_sessions#create'
   delete 'signout', to: 'user_sessions#destroy'
 
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+
+  get 'profile', to: 'users#show'
+  get 'edit_profile', to: 'users#edit'
+  patch 'profile', to: 'users#update'
+
   # devise_for :users
   
   root to: "discussions#index"

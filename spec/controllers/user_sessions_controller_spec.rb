@@ -59,16 +59,14 @@ RSpec.describe UserSessionsController, :type => :controller do
   end
 
   describe 'DELETE #destroy' do
+    it 'requires user session' do
+      delete :destroy
+      expect(response).to redirect_to(signin_url)
+      expect(flash[:notice]).to include '请先登录'
+    end
+
     it 'signs out user' do
-      user_session = {
-        email: user.email,
-        password: user.password
-      }
-
-      post :create, { user_session: user_session }
-
-      expect(response).to redirect_to(root_url)
-      expect(flash[:success]).to include '登录成功'
+      create_user_session(user)
 
       delete :destroy
       expect(response).to redirect_to(root_url)
