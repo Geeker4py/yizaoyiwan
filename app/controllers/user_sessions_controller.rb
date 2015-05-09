@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
       redirect_to root_url
     else
       flash[:error] = '邮箱或者密码不正确'
-      render action: :new
+      redirect_to signin_path
     end
   end
 

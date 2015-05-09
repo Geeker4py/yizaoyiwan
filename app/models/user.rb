@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
   alias_attribute :to_s, :username
   enumerize :role, in: [:admin, :member], default: :member
 
-  ## Attributes
+  validates_presence_of :username, :email, :role
+  validates_presence_of :password, :password_confirmation, on: :create
+  validates_uniqueness_of :username
+  validates_format_of :username, with: /\A\S+\z/, message: '不能包含空格'
 
   def avatar_url(size=64)
     "#{Settings.gavatar.proxy}/#{email_md5}.png?s=#{size}&w=#{Settings.gavatar.default}"

@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= body_class %>">
-    <%= render '/shared/header' %>
+    <%= render 'header' %>
     
     <div class="header">
       <div class="container">
@@ -18,7 +18,7 @@
             <%= link_to '注销', signout_path, method: :delete, data: { confirm: '确定要注销？'} %>
           <% else %>
             <%= link_to '登录', signin_path %>
-            <%= link_to '注册', '#' %>
+            <%= link_to '注册', signup_path %>
           <% end %>
         </div>
       </div>
