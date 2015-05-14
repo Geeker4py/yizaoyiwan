@@ -14,4 +14,21 @@ RSpec.describe Profile::PasswordsController, type: :controller do
       expect(assigns(:user)).to eq user
     end
   end
+
+  describe 'PATCH #update' do
+    it 'updates password' do
+      patch :update, {
+        user: {
+          old_password: 'test123.com',
+          password: 'oktest123.com',
+          password_confirmation: 'oktest123.com'
+        }
+      }
+
+      expect(assigns(:user).errors.messages).to be_empty
+      expect(response).to redirect_to profile_path
+      expect(flash[:notice]).to eq '密码更新成功'
+      expect(user.reload.valid_password?('oktest123.com', true)).to be true
+    end
+  end
 end

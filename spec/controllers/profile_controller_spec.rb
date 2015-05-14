@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProfileController, type: :controller do
+RSpec.describe Profile::ProfileController, type: :controller do
   let(:user) { create(:user) }
 
   before(:each) { create_user_session(user) }

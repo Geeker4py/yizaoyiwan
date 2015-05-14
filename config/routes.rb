@@ -22,7 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :profile do
+  namespace :profile, controller: :profile do
+    get '', action: :index
     resource :password, only: [:show, :update]
   end
 
