@@ -30,5 +30,18 @@ RSpec.describe Profile::PasswordsController, type: :controller do
       expect(flash[:notice]).to eq '密码更新成功'
       expect(user.reload.valid_password?('oktest123.com', true)).to be true
     end
+
+    it 'checks old password' do
+      patch :update, {
+        user: {
+          old_password: 'test1231.com',
+          password: 'oktest123.com',
+          password_confirmation: 'oktest123.com'
+        }
+      }
+
+      expect(assigns(:user).errors).to have_key(:old_password)
+      expect(response).to render_template(:show)
+    end
   end
 end
