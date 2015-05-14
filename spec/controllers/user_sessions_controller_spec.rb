@@ -34,7 +34,7 @@ RSpec.describe UserSessionsController, :type => :controller do
 
       post :create, { user_session: user_session }
 
-      expect(response).to render_template(:new)
+      expect(response).to redirect_to(signin_path)
       expect(flash[:error]).to include '邮箱或者密码不正确'
     end
 
@@ -46,14 +46,14 @@ RSpec.describe UserSessionsController, :type => :controller do
 
       post :create, { user_session: user_session }
 
-      expect(response).to render_template(:new)
+      expect(response).to redirect_to(signin_path)
       expect(flash[:error]).to include '邮箱或者密码不正确'
     end
 
     it 'prevents user with blank auth info' do
       post :create
 
-      expect(response).to render_template(:new)
+      expect(response).to redirect_to(signin_path)
       expect(flash[:error]).to include '邮箱或者密码不正确'
     end
   end

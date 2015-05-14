@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   #get 'edit_profile', to: 'users#edit'
   #patch 'profile', to: 'users#update'
 
-  # devise_for :users
-  
   root to: "discussions#index"
 
   resources :discussions do
@@ -24,6 +22,7 @@ Rails.application.routes.draw do
 
   namespace :profile, controller: :profile do
     get '', action: :index
+    
     resource :password, only: [:show, :update]
   end
 
