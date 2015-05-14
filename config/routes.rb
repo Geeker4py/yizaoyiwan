@@ -6,12 +6,10 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
 
-  get 'profile', to: 'users#show'
-  get 'edit_profile', to: 'users#edit'
-  patch 'profile', to: 'users#update'
+  #get 'profile', to: 'users#show'
+  #get 'edit_profile', to: 'users#edit'
+  #patch 'profile', to: 'users#update'
 
-  # devise_for :users
-  
   root to: "discussions#index"
 
   resources :discussions do
@@ -20,6 +18,12 @@ Rails.application.routes.draw do
     member do
       patch :bookmark
     end
+  end
+
+  namespace :profile, controller: :profile do
+    get '', action: :index
+    
+    resource :password, only: [:show, :update]
   end
 
   namespace :upload do

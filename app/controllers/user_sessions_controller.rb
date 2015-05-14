@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  # skip_load_and_authorize_resource
   before_action :require_user, only: [:destroy]
 
   def new
@@ -8,6 +7,7 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
+    
     if @user_session.save
       flash[:success] = '登录成功'
       redirect_to root_url
