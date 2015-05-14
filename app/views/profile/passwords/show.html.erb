@@ -1,0 +1,13 @@
+<%= simple_form_for @user, url: profile_password_path do |f| %>
+  <%= panel title: @title do %>
+    <div class="panel-body">
+      <%= f.error_notification %>
+      <%= f.input :old_password %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+    </div>
+    <div class="panel-footer">
+      <%= f.submit '更改密码', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>
